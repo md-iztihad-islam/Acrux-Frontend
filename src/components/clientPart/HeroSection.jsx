@@ -171,6 +171,7 @@ const HeroSection = () => {
                             autoPlay
                             loop
                             playsInline
+                            controls
                             onEnded={handleVideoEnd}
                             className="w-[400px] h-auto"
                         />
