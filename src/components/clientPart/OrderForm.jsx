@@ -902,7 +902,7 @@ const OrderForm = () => {
                             <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">0137678124648</div>
                         </div>
                         <div className="text-center">
-                            <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">order@footcare.com</div>
+                            <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">acruxshop26@gmail.com</div>
                             <div className="text-sm text-gray-600 dark:text-gray-400">ইমেইল করুন ২৪/৭</div>
                         </div>
                         <div className="text-center">
