@@ -349,7 +349,7 @@ const PricingCards = () => {
 
     const totalMainPrice = products.reduce((sum, product) => sum + product.mainPrice, 0);
     const totalFinalPrice = products.reduce((sum, product) => sum + product.finalPrice, 0);
-    const familyPrice = Math.round(totalFinalPrice * 0.80); // 20% extra discount for family pack
+    const familyPrice = totalFinalPrice-750;
     const savings = totalMainPrice - familyPrice;
     const savingsPercent = totalMainPrice > 0 ? Math.round((savings / totalMainPrice) * 100) : 0;
     const minStock = Math.min(...products.map(p => p.stockQuantity));

@@ -147,13 +147,14 @@ const OrderForm = () => {
         if (apiProducts.length < 4) return null;
         
         const totalOriginalPrice = apiProducts.slice(0, 4).reduce((sum, p) => sum + p.originalPrice, 0);
-        const familyPackPrice = 1999;
+        const totalFinalPrice = apiProducts.reduce((sum, product) => sum + product.price, 0);
+        const familyPackPrice = totalFinalPrice - 750;
         const savings = totalOriginalPrice - familyPackPrice;
         
         return {
             key: "family_pack",
             name: "কমপ্লিট ফ্যামিলি প্যাক",
-            description: "সব ৪টি প্রিমিয়াম প্রোডাক্ট + ফ্রি ক্যারি ব্যাগ",
+            description: "সব ৪টি প্রিমিয়াম প্রোডাক্ট একসাথে, বিশেষ ছাড়ে!",
             price: familyPackPrice,
             originalPrice: totalOriginalPrice,
             discountAmount: savings,
@@ -273,10 +274,7 @@ const OrderForm = () => {
     const { mutate, isPending } = useMutation({
         mutationFn: (orderData) => addOrderApi(orderData),
         onSuccess: (data) => {
-            toast({
-                title: "অর্ডার সফল হয়েছে! 🎉",
-                description: `আপনার অর্ডার #${data.orderId} গ্রহণ করা হয়েছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।`,
-            });
+            window.showToast("অর্ডার সফল হয়েছে! 🎉", `আপনার অর্ডার #${data.orderId} গ্রহণ করা হয়েছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।`, "success");
             
             // Reset form on success
             setQuantities(initializeQuantities());

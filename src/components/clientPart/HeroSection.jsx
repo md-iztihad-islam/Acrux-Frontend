@@ -1,14 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import video from "@/assets/video.MOV";
 import { Footprints, Shield, Zap, Award, ChevronRight, Play, Pause, Check } from "lucide-react";
-import logo from "@/assets/logo.jpeg";
+import logo from "@/assets/logo.png";
 
 const HeroSection = () => {
     const [isVisible, setIsVisible] = useState(true);
+    const videoRef = useRef(null);
 
     const scrollToOrder = () => {
         document.getElementById("order")?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    const handleVideoEnd = (e) => {
+        // Manually restart the video if loop fails
+        e.target.play();
     };
 
 
@@ -80,7 +86,7 @@ const HeroSection = () => {
                 <div className="flex flex-col items-center text-center mb-8 md:mb-12 lg:mb-16">
                     <div className="mb-6">
                         <div className="inline-flex items-center justify-center p-2 bg-gradient-to-r from-gold/20 to-teal/20 backdrop-blur-sm rounded-2xl mb-4">
-                            <img src={logo} className="w-[200px]" alt="" />
+                            <img src={logo} className="w-[300px]" alt="" />
                         </div>
                         <p className="text-sm md:text-base text-gray-300 mt-2 tracking-widest uppercase">
                             PREMIUM FOOT CARE SOLUTIONS
@@ -160,15 +166,15 @@ const HeroSection = () => {
                 <div className="relative max-w-6xl mx-auto">
                     <div className="flex justify-center items-center rounded-3xl overflow-hidden shadow-2xl group">
                         <video
+                            ref={videoRef}
                             src={video}
                             autoPlay
                             loop
-                            className="w-[400px] h-auto "
+                            playsInline
+                            onEnded={handleVideoEnd}
+                            className="w-[400px] h-auto"
                         />
-                    
-                        {/* Video Overlay Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent" />
-
+                
                         
 
                         {/* Stats Overlay */}
