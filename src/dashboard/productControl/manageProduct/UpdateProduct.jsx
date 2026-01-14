@@ -22,7 +22,7 @@ function UpdateProduct() {
     finalPrice: 0
   });
 
-  console.log("Product ID from URL:", productId);
+  // console.log("Product ID from URL:", productId);
 
   // Fetch product data
   const { data: apiResponse, isLoading, error } = useQuery({
@@ -35,13 +35,13 @@ function UpdateProduct() {
   // Extract product data from API response
   const productData = apiResponse?.data || apiResponse || null;
   
-  console.log("API Response:", apiResponse);
-  console.log("Product Data:", productData);
+  // console.log("API Response:", apiResponse);
+  // console.log("Product Data:", productData);
 
   // Populate form when product data loads
   useEffect(() => {
     if (productData) {
-      console.log("Populating form with:", productData);
+      // console.log("Populating form with:", productData);
       setFormData({
         title: productData.title || "",
         subTitle: productData.subTitle || "",
@@ -99,18 +99,18 @@ function UpdateProduct() {
   // Update product mutation
   const { mutate: updateProduct, isPending: isUpdating } = useMutation({
     mutationFn: ({ productId, formData }) => {
-      console.log("Mutation called with:", { productId, formData });
+      // console.log("Mutation called with:", { productId, formData });
       return updateProductApi(productId, formData);
     },
     onSuccess: (response) => {
-      console.log("Update success:", response);
+      // console.log("Update success:", response);
       window.showToast("Product updated successfully", "success");
       queryClient.invalidateQueries({ queryKey: ["products"] });
       queryClient.invalidateQueries({ queryKey: ["product", productId] });
       navigate("/dashboard/products");
     },
     onError: (error) => {
-      console.error("Update error:", error);
+      // console.error("Update error:", error);
       window.showToast(`Error updating product: ${error.message}`, "error");
     },
   });
@@ -119,8 +119,8 @@ function UpdateProduct() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    console.log("Submitting form for product:", productId);
-    console.log("Form data to submit:", formData);
+    // console.log("Submitting form for product:", productId);
+    // console.log("Form data to submit:", formData);
     
     // Validation
     if (!formData.title.trim()) {
@@ -161,9 +161,9 @@ function UpdateProduct() {
     submitData.append("finalPrice", formData.finalPrice);
 
     // Log form data for debugging
-    console.log("FormData entries:");
+    // console.log("FormData entries:");
     for (let pair of submitData.entries()) {
-      console.log(pair[0] + ': ' + pair[1]);
+      // console.log(pair[0] + ': ' + pair[1]);
     }
 
     updateProduct({ 

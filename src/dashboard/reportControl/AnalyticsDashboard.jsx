@@ -72,10 +72,10 @@ function AnalyticsDashboard() {
   const acceptedOrders = acceptedOrdersResponse?.data || [];
   const cancelledOrders = cancelledOrdersResponse?.data || [];
 
-  console.log("All Orders Data:", allOrdersResponse?.data);
-  console.log("Pending Orders Data:", pendingOrdersResponse?.data);
-  console.log("Accepted Orders Data:", acceptedOrdersResponse?.data);
-  console.log("Cancelled Orders Data:", cancelledOrdersResponse?.data);
+  // console.log("All Orders Data:", allOrdersResponse?.data);
+  // console.log("Pending Orders Data:", pendingOrdersResponse?.data);
+  // console.log("Accepted Orders Data:", acceptedOrdersResponse?.data);
+  // console.log("Cancelled Orders Data:", cancelledOrdersResponse?.data);
 
   const isLoading = isLoadingAll || isLoadingPending || isLoadingAccepted || isLoadingCancelled;
   const error = errorAll;

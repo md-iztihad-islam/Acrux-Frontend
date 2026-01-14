@@ -292,7 +292,7 @@ const OrderForm = () => {
             setIsSubmitting(false);
         },
         onError: (error) => {
-            console.error("Order submission error:", error);
+            // console.error("Order submission error:", error);
             toast({
                 title: "ত্রুটি",
                 description: error.message || "অর্ডার জমা দিতে সমস্যা হয়েছে, অনুগ্রহ করে আবার চেষ্টা করুন",
@@ -349,7 +349,7 @@ const OrderForm = () => {
             notes: formData.notes // Additional notes (not in schema, but we can add if needed)
         };
 
-        console.log("Submitting order:", orderData);
+        // console.log("Submitting order:", orderData);
 
         // Send to your backend API using mutation
         mutate(orderData);

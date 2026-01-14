@@ -163,9 +163,9 @@ function DashboardProducts() {
   }
 
   // Debug: Check API response structure
-  console.log('API Response:', apiResponse);
-  console.log('Products:', products);
-  console.log('Safe Products:', safeProducts);
+  // console.log('API Response:', apiResponse);
+  // console.log('Products:', products);
+  // console.log('Safe Products:', safeProducts);
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-6 w-full">

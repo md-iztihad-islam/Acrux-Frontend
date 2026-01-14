@@ -40,13 +40,13 @@ function OrderDetails() {
   const { mutate: confirmMutate, isLoading: isConfirming } = useMutation({
     mutationFn: (serialData) => confirmOrderApi(orderId, serialData),
     onSuccess: (data) => {
-      console.log("Order confirmed successfully:", data);
+      // console.log("Order confirmed successfully:", data);
       window.showToast?.("Order confirmed successfully!", "success");
       refetch();
       navigate("/dashboard/ordercontrol/accepted-orders");
     },
     onError: (error) => {
-      console.log("Error confirming order:", error);
+      // console.log("Error confirming order:", error);
       window.showToast?.("Error confirming order. Please try again.", "error");
     }
   });
@@ -54,12 +54,12 @@ function OrderDetails() {
   const { mutate: cancelMutate, isLoading: isCancelling } = useMutation({
     mutationFn: () => cancelOrderApi(orderId),
     onSuccess: (data) => {
-      console.log("Order cancelled successfully:", data);
+      // console.log("Order cancelled successfully:", data);
       window.showToast?.("Order cancelled successfully!", "success");
       refetch();
     },
     onError: (error) => {
-      console.log("Error cancelling order:", error);
+      // console.log("Error cancelling order:", error);
       window.showToast?.("Error cancelling order. Please try again.", "error");
     }
   });
@@ -87,7 +87,7 @@ const handleDownloadInvoice = () => {
     
     window.showToast?.("Invoice download started!", "success");
   } catch (error) {
-    console.error("Error downloading invoice:", error);
+    // console.error("Error downloading invoice:", error);
     window.showToast?.("Failed to download invoice. Please try again.", "error");
   }
 };
@@ -204,7 +204,7 @@ const handleDownloadInvoice = () => {
 
   const handleConfirmOrder = () => {
     const confirmationData = {};
-    console.log("Confirming order:", orderId);
+    // console.log("Confirming order:", orderId);
     confirmMutate(confirmationData);
   };
 

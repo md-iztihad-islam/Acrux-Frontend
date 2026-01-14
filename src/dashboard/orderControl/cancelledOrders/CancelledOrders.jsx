@@ -367,7 +367,7 @@ function CancelledOrders() {
                           View Details
                         </button>
                         <button
-                          onClick={() => console.log("Restore order:", order._id)}
+                          // onClick={() => console.log("Restore order:", order._id)}
                           className="btn btn-outline btn-success flex-1"
                         >
                           Restore
@@ -473,7 +473,7 @@ function CancelledOrders() {
                           Details
                         </button>
                         <button
-                          onClick={() => console.log("Restore order:", order._id)}
+                          // onClick={() => console.log("Restore order:", order._id)}
                           className="btn btn-outline btn-success btn-sm flex-1"
                         >
                           Restore

@@ -24,7 +24,7 @@ function ReceivedOrders() {
     queryFn: () => getPendingOrdersApi(),
   });
 
-  console.log('Pending Orders Data:', pendingOrdersData?.data);
+  // console.log('Pending Orders Data:', pendingOrdersData?.data);
 
   const formatDate = (dateString) => {
     if (!dateString) return 'N/A';

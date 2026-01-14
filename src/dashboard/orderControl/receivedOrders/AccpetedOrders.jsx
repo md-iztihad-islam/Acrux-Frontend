@@ -291,7 +291,7 @@ function AcceptedOrders() {
                         View Details
                       </button>
                       <button
-                        onClick={() => console.log("Process order:", order._id)}
+                        // onClick={() => console.log("Process order:", order._id)}
                         className="btn btn-success flex-1"
                       >
                         Process
