@@ -15,7 +15,6 @@ const benefits = [
   { 
     icon: Shield, 
     title: "গভীর ময়েশ্চারাইজিং", 
-    title: "গভীর ময়েশ্চারাইজিং", 
     description: "শুষ্ক ত্বককে কোমল ও মসৃণ রাখে"
   },
   { 
