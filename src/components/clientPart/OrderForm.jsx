@@ -580,7 +580,7 @@ const OrderForm = () => {
 
                         {/* Billing Details */}
                         <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
-                        <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                        <h3 className="text-xl md:text-2xl font-bold text-black dark:text-white mb-6 flex items-center gap-2">
                             <Truck className="w-5 h-5" />
                             ডেলিভারি তথ্য
                         </h3>
@@ -588,7 +588,7 @@ const OrderForm = () => {
                         <form className="space-y-6">
                             <div className="grid md:grid-cols-2 gap-4">
                             <div className="space-y-2">
-                                <Label htmlFor="customerName" className="text-gray-700 dark:text-gray-300">
+                                <Label htmlFor="customerName" className="text-black dark:text-gray-300">
                                 পুরো নাম *
                                 </Label>
                                 <Input
@@ -596,7 +596,7 @@ const OrderForm = () => {
                                 placeholder="আপনার পুরো নাম লিখুন"
                                 value={formData.customerName}
                                 onChange={(e) => setFormData({ ...formData, customerName: e.target.value })}
-                                className={`bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 ${
+                                className={`bg-gray-50 text-black dark:bg-gray-700 border-gray-300 dark:border-gray-600 ${
                                     errors.customerName ? "border-red-500 dark:border-red-500" : ""
                                 }`}
                                 />
@@ -606,7 +606,7 @@ const OrderForm = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="customerPhone" className="text-gray-700 dark:text-gray-300">
+                                <Label htmlFor="customerPhone" className="text-black dark:text-gray-300">
                                 মোবাইল নাম্বার *
                                 </Label>
                                 <Input
@@ -614,7 +614,7 @@ const OrderForm = () => {
                                 placeholder="01XXXXXXXXX"
                                 value={formData.customerPhone}
                                 onChange={handlePhoneChange}
-                                className={`bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 ${
+                                className={`bg-gray-50 text-black dark:bg-gray-700 border-gray-300 dark:border-gray-600 ${
                                     errors.customerPhone ? "border-red-500 dark:border-red-500" : ""
                                 }`}
                                 maxLength={11}
@@ -630,7 +630,7 @@ const OrderForm = () => {
                             </div>
 
                             <div className="space-y-2">
-                            <Label htmlFor="deliverAddress" className="text-gray-700 dark:text-gray-300">
+                            <Label htmlFor="deliverAddress" className="text-black dark:text-gray-300">
                                 সম্পূর্ণ ঠিকানা *
                             </Label>
                             <Input
@@ -638,7 +638,7 @@ const OrderForm = () => {
                                 placeholder="বাড়ি নং, রোড নং, এলাকা, থানা, জেলা"
                                 value={formData.deliverAddress}
                                 onChange={(e) => setFormData({ ...formData, deliverAddress: e.target.value })}
-                                className={`bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 ${
+                                className={`bg-gray-50 text-black dark:bg-gray-700 border-gray-300 dark:border-gray-600 ${
                                 errors.deliverAddress ? "border-red-500 dark:border-red-500" : ""
                                 }`}
                             />
@@ -649,7 +649,7 @@ const OrderForm = () => {
 
                             <div className="grid md:grid-cols-2 gap-4">
                             <div className="space-y-2">
-                                <Label htmlFor="area" className="text-gray-700 dark:text-gray-300">
+                                <Label htmlFor="area" className="text-black dark:text-gray-300">
                                 এলাকা নির্বাচন *
                                 </Label>
                                 <Select
@@ -675,20 +675,20 @@ const OrderForm = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="country" className="text-gray-700 dark:text-gray-300">
+                                <Label htmlFor="country" className="text-black dark:text-gray-300">
                                 দেশ
                                 </Label>
                                 <Input
                                 id="country"
                                 value="বাংলাদেশ"
                                 readOnly
-                                className="bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                                className="bg-gray-100 text-black dark:bg-gray-700 border-gray-300 dark:border-gray-600"
                                 />
                             </div>
                             </div>
 
                             <div className="space-y-2">
-                            <Label htmlFor="notes" className="text-gray-700 dark:text-gray-300">
+                            <Label htmlFor="notes" className="text-black dark:text-gray-300">
                                 অতিরিক্ত নির্দেশনা (ঐচ্ছিক)
                             </Label>
                             <Input
@@ -696,7 +696,7 @@ const OrderForm = () => {
                                 placeholder="ডেলিভারির সময় বা অন্য কোন নির্দেশনা থাকলে লিখুন"
                                 value={formData.notes}
                                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                                className="bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                                className="bg-gray-50 text-black dark:bg-gray-700 border-gray-300 dark:border-gray-600"
                             />
                             </div>
                         </form>

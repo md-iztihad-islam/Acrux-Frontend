@@ -85,7 +85,7 @@ const PricingCard = ({
       {/* Popular Badge */}
       {isPopular && (
         <>
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-amber-500 text-white text-xs font-bold px-6 py-2 rounded-full shadow-lg z-10 flex items-center gap-1">
+          <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-amber-500 text-white text-xs font-bold px-6 py-2 rounded-full shadow-lg z-10 flex items-center gap-1">
             <Crown className="w-3 h-3" />
             <span>ফ্যামিলি স্পেশাল</span>
           </div>
@@ -94,7 +94,7 @@ const PricingCard = ({
       )}
 
       {/* Card Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 mt-7">
         {/* Header with Image */}
         <div className="text-center mb-6">
           <div className="flex justify-center mb-4">
@@ -319,7 +319,6 @@ const PricingCards = () => {
       `ছাড়ের মূল্য: ৳${product.finalPrice.toLocaleString()}`,
       product.discountAmount > 0 ? `${Math.round((product.discountAmount / product.mainPrice) * 100)}% সাশ্রয়` : "বিশেষ মূল্য",
       "ফ্রি হোম ডেলিভারি",
-      "৩০ দিনের রিটার্ন পলিসি"
     ];
   };
 
@@ -668,19 +667,7 @@ const PricingCards = () => {
           </div>
         )}
 
-        {/* Guarantee Section */}
-        <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl mb-4">
-            <Shield className="w-5 h-5 text-green-500" />
-            <span className="text-base font-bold text-gray-900 dark:text-white">
-              ৩০ দিনের ফুল মনি ব্যাক গ্যারান্টি
-            </span>
-          </div>
-          
-          <p className="text-sm text-gray-600 dark:text-gray-400">
-            আপনি যদি সম্পূর্ণ সন্তুষ্ট না হন, আমরা ৩০ দিনের মধ্যে আপনার সম্পূর্ণ অর্থ ফেরত দেব
-          </p>
-        </div>
+        
       </div>
     </section>
   );
