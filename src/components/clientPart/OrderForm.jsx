@@ -481,10 +481,10 @@ const OrderForm = () => {
                                                     <h4 className="text-base md:text-lg font-bold text-gray-900 dark:text-white mb-1">
                                                         {product.name}
                                                     </h4>
-                                                    {/* <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                                                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
                                                         {product.description}
-                                                    </p> */}
-                                                    {/* <div className="flex flex-wrap items-center gap-2 mb-2">
+                                                    </p>
+                                                    <div className="flex flex-wrap items-center gap-2 mb-2">
                                                         <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded">
                                                             {product.weight}
                                                         </span>
@@ -498,7 +498,7 @@ const OrderForm = () => {
                                                                 {product.stockQuantity} টি স্টকে আছে
                                                             </span>
                                                         )}
-                                                    </div> */}
+                                                    </div>
                                                 </div>
 
                                             {/* Price */}
