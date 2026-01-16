@@ -174,37 +174,10 @@ const HeroSection = () => {
                             controls
                             onEnded={handleVideoEnd}
                             className="w-[400px] h-auto"
-                        />
-                
-                        
-
-                        {/* Stats Overlay */}
-                        <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 hidden md:block">
-                            <div className="flex gap-4">
-                                <div className="bg-black/60 backdrop-blur-sm rounded-xl p-3 border border-white/10">
-                                    <div className="text-2xl font-bold text-white">৫,০০০+</div>
-                                    <div className="text-xs text-gray-300">সন্তুষ্ট গ্রাহক</div>
-                                </div>
-                                <div className="bg-black/60 backdrop-blur-sm rounded-xl p-3 border border-white/10">
-                                    <div className="text-2xl font-bold text-white">৯৮%</div>
-                                    <div className="text-xs text-gray-300">সফলতা হার</div>
-                                </div>
-                        </div>
+                        />    
                     </div>
                 </div>
 
-                {/* Mobile Stats */}
-                <div className="flex justify-center gap-4 mt-4 md:hidden">
-                    <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-3 flex-1 text-center">
-                        <div className="text-xl font-bold text-white">৫,০০০+</div>
-                        <div className="text-xs text-gray-300">সন্তুষ্ট গ্রাহক</div>
-                    </div>
-                    <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-3 flex-1 text-center">
-                        <div className="text-xl font-bold text-white">৯৮%</div>
-                        <div className="text-xs text-gray-300">সফলতা হার</div>
-                    </div>
-                </div>
-                </div>
 
                 {/* Scroll Indicator */}
                 <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 ${

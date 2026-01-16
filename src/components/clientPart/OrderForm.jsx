@@ -142,42 +142,42 @@ const OrderForm = () => {
     };
 
     // Add family pack product
-    const getFamilyPackProduct = () => {
-        const apiProducts = processProductsFromApi();
-        if (apiProducts.length < 4) return null;
+    // const getFamilyPackProduct = () => {
+    //     const apiProducts = processProductsFromApi();
+    //     if (apiProducts.length < 4) return null;
         
-        const totalOriginalPrice = apiProducts.slice(0, 4).reduce((sum, p) => sum + p.originalPrice, 0);
-        const totalFinalPrice = apiProducts.reduce((sum, product) => sum + product.price, 0);
-        const familyPackPrice = totalFinalPrice - 750;
-        const savings = totalOriginalPrice - familyPackPrice;
+    //     const totalOriginalPrice = apiProducts.slice(0, 4).reduce((sum, p) => sum + p.originalPrice, 0);
+    //     const totalFinalPrice = apiProducts.reduce((sum, product) => sum + product.price, 0);
+    //     const familyPackPrice = totalFinalPrice - 750;
+    //     const savings = totalOriginalPrice - familyPackPrice;
         
-        return {
-            key: "family_pack",
-            name: "কমপ্লিট ফ্যামিলি প্যাক",
-            description: "সব ৪টি প্রিমিয়াম প্রোডাক্ট একসাথে, বিশেষ ছাড়ে!",
-            price: familyPackPrice,
-            originalPrice: totalOriginalPrice,
-            discountAmount: savings,
-            discountPercentage: Math.round((savings / totalOriginalPrice) * 100),
-            image: apiProducts[0]?.image || "",
-            stockQuantity: Math.min(...apiProducts.slice(0, 4).map(p => p.stockQuantity)),
-            weight: "160 গ্রাম (৪টি স্টিক)",
-            features: ["সব ৪টি স্টিক", "ফ্রি ক্যারি ব্যাগ", `${Math.round((savings / totalOriginalPrice) * 100)}% ছাড়`, "লাইফটাইম সাপোর্ট"],
-            category: "family",
-            isPopular: true,
-            savings: savings,
-            isFamilyPack: true
-        };
-    };
+    //     return {
+    //         key: "family_pack",
+    //         name: "কমপ্লিট ফ্যামিলি প্যাক",
+    //         description: "সব ৪টি প্রিমিয়াম প্রোডাক্ট একসাথে, বিশেষ ছাড়ে!",
+    //         price: familyPackPrice,
+    //         originalPrice: totalOriginalPrice,
+    //         discountAmount: savings,
+    //         discountPercentage: Math.round((savings / totalOriginalPrice) * 100),
+    //         image: apiProducts[0]?.image || "",
+    //         stockQuantity: Math.min(...apiProducts.slice(0, 4).map(p => p.stockQuantity)),
+    //         weight: "160 গ্রাম (৪টি স্টিক)",
+    //         features: ["সব ৪টি স্টিক", "ফ্রি ক্যারি ব্যাগ", `${Math.round((savings / totalOriginalPrice) * 100)}% ছাড়`, "লাইফটাইম সাপোর্ট"],
+    //         category: "family",
+    //         isPopular: true,
+    //         savings: savings,
+    //         isFamilyPack: true
+    //     };
+    // };
 
     // Combine API products with family pack
     const products = () => {
         const apiProducts = processProductsFromApi();
-        const familyPack = getFamilyPackProduct();
+        // const familyPack = getFamilyPackProduct();
         
-        if (familyPack) {
-            return [...apiProducts, familyPack];
-        }
+        // if (familyPack) {
+        //     return [...apiProducts, familyPack];
+        // }
         return apiProducts;
     };
 
@@ -240,16 +240,16 @@ const OrderForm = () => {
             const newValue = Math.max(0, prev[key] + delta);
             
             // If family pack is selected, reset individual products
-            if (key === "family_pack" && newValue > 0) {
-                const updated = { ...prev };
-                products().forEach(product => {
-                    if (product.key !== "family_pack") {
-                        updated[product.key] = 0;
-                    }
-                });
-                updated[key] = newValue;
-                return updated;
-            }
+            // if (key === "family_pack" && newValue > 0) {
+            //     const updated = { ...prev };
+            //     products().forEach(product => {
+            //         if (product.key !== "family_pack") {
+            //             updated[product.key] = 0;
+            //         }
+            //     });
+            //     updated[key] = newValue;
+            //     return updated;
+            // }
             
             // If any individual product is selected, reset family pack
             if (key !== "family_pack" && newValue > 0) {
@@ -481,10 +481,10 @@ const OrderForm = () => {
                                                     <h4 className="text-base md:text-lg font-bold text-gray-900 dark:text-white mb-1">
                                                         {product.name}
                                                     </h4>
-                                                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                                                    {/* <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
                                                         {product.description}
-                                                    </p>
-                                                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                                                    </p> */}
+                                                    {/* <div className="flex flex-wrap items-center gap-2 mb-2">
                                                         <span className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded">
                                                             {product.weight}
                                                         </span>
@@ -498,7 +498,7 @@ const OrderForm = () => {
                                                                 {product.stockQuantity} টি স্টকে আছে
                                                             </span>
                                                         )}
-                                                    </div>
+                                                    </div> */}
                                                 </div>
 
                                             {/* Price */}
@@ -562,7 +562,7 @@ const OrderForm = () => {
                                         </div>
                                     </div>
 
-                                    {/* Warning message for product conflicts */}
+                                    {/* Warning message for product conflicts
                                     {product.category === "family" && quantities[product.key] > 0 && (
                                     <div className="mt-3 p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-700">
                                         <p className="text-sm text-amber-700 dark:text-amber-300 flex items-center gap-2">
@@ -570,7 +570,7 @@ const OrderForm = () => {
                                         ফ্যামিলি প্যাক নির্বাচিত। আলাদা পণ্যগুলো অটো বন্ধ করা হয়েছে।
                                         </p>
                                     </div>
-                                    )}
+                                    )} */}
                                 </div>
                             ))}
                         </div>
@@ -725,11 +725,11 @@ const OrderForm = () => {
                                                     <span className="text-xs text-gray-500 dark:text-gray-400">
                                                         {quantities[product.key]} × ৳{product.price}
                                                     </span>
-                                                    {product.isPopular && product.category === "family" && (
+                                                    {/* {product.isPopular && product.category === "family" && (
                                                         <span className="text-xs bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-2 py-0.5 rounded-full">
                                                             ফ্যামিলি প্যাক
                                                         </span>
-                                                    )}
+                                                    )} */}
                                                 </div>
                                                 </div>
                                                 <span className="font-bold text-teal-600 dark:text-teal-400">
@@ -804,12 +804,12 @@ const OrderForm = () => {
 
                                 {/* Submit Button */}
                                 <Button
-                                variant="gold"
-                                size="xl"
-                                type="submit"
-                                className="w-full bg-gray-400 hover:bg-gray-600 mt-6 py-6 text-base font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                                onClick={handleSubmit}
-                                disabled={isSubmitting || totalItems === 0}
+                                    variant="gold"
+                                    size="xl"
+                                    type="submit"
+                                    className={`${totalItems > 0 ? "bg-black text-white" : "bg-gray-400"} w-full hover:bg-gray-600 mt-6 py-6 text-base font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300`}
+                                    onClick={handleSubmit}
+                                    disabled={isSubmitting || totalItems === 0}
                                 >
                                 {isSubmitting ? (
                                     <span className="flex items-center justify-center gap-2">
@@ -900,14 +900,11 @@ const OrderForm = () => {
                     <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
                         <div className="text-center">
                             <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">0137678124648</div>
+                            <div className="text-sm text-gray-600 dark:text-gray-400">সরাসরি কথা বলুন</div>
                         </div>
                         <div className="text-center">
                             <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">acruxshop26@gmail.com</div>
                             <div className="text-sm text-gray-600 dark:text-gray-400">ইমেইল করুন ২৪/৭</div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">Live Chat</div>
-                            <div className="text-sm text-gray-600 dark:text-gray-400">সরাসরি কথা বলুন</div>
                         </div>
                     </div>
                 </div>

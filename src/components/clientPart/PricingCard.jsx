@@ -457,11 +457,10 @@ const PricingCards = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600">
               {totalProducts}টি স্পেশালাইজড প্রোডাক্ট
             </span>
-            {familyPack && " + ১টি ফ্যামিলি প্যাক"}
           </h2>
           
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            আপনার প্রয়োজন অনুযায়ী প্রোডাক্ট নির্বাচন করুন, অথবা সবচেয়ে সাশ্রয়ী ফ্যামিলি প্যাক নিন
+            আপনার প্রয়োজন অনুযায়ী প্রোডাক্ট নির্বাচন করুন
           </p>
 
           {/* Stats Bar */}
@@ -553,120 +552,6 @@ const PricingCards = () => {
             })}
           </div>
         </div>
-
-        {/* Family Pack Section */}
-        {familyPack && (
-          <div className="mb-12 md:mb-16">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-500">
-                  স্পেশাল ফ্যামিলি অফার
-                </span>
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                সবচেয়ে সাশ্রয়ী - পুরো পরিবারের জন্য কমপ্লিট সলিউশন
-              </p>
-            </div>
-
-            <div className="max-w-4xl mx-auto">
-              <PricingCard
-                key="family-pack"
-                product={familyPack}
-                index={products.length}
-                icon={Package}
-                iconColor="from-purple-500 to-indigo-500"
-                features={familyPack.features}
-                isPopular={familyPack.isPopular}
-                savings={familyPack.savings}
-                savingsPercent={familyPack.savingsPercent}
-                productCount={familyPack.productCount}
-                isFamilyPack={true}
-                allProducts={products}
-              />
-            </div>
-
-            {/* Product Images Gallery */}
-            <div className="max-w-3xl mx-auto mt-8">
-              <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6">
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4 text-center">
-                  ফ্যামিলি প্যাকের প্রোডাক্টসমূহ
-                </h4>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {products.map((product, index) => (
-                    <div key={product._id} className="text-center">
-                      <div className="relative mb-2">
-                        <img
-                          src={product.image}
-                          alt={product.title}
-                          className="w-full h-32 md:h-40 object-cover rounded-lg border-2 border-gray-200 dark:border-gray-700"
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.parentElement.innerHTML = `
-                              <div class="w-full h-32 md:h-40 flex items-center justify-center bg-gray-200 dark:bg-gray-700 rounded-lg">
-                                <Package class="w-12 h-12 text-gray-400" />
-                              </div>
-                            `;
-                          }}
-                        />
-                        <div className="absolute top-2 left-2 w-6 h-6 bg-teal-500 text-white text-xs rounded-full flex items-center justify-center">
-                          {index + 1}
-                        </div>
-                        {product.savingsPercent > 0 && (
-                          <div className="absolute top-2 right-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                            {product.savingsPercent}%
-                          </div>
-                        )}
-                      </div>
-                      <h5 className="font-medium text-gray-900 dark:text-white text-sm truncate">
-                        {product.title}
-                      </h5>
-                      <div className="flex items-center justify-center gap-2 mt-1">
-                        <span className="text-sm line-through text-gray-500">
-                          ৳{product.mainPrice.toLocaleString()}
-                        </span>
-                        <span className="text-sm font-bold text-green-600">
-                          ৳{product.finalPrice.toLocaleString()}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Savings Comparison */}
-            <div className="max-w-3xl mx-auto mt-8">
-              <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-2xl p-6 border border-amber-100 dark:border-amber-800/30">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                      ফ্যামিলি প্যাকের সাশ্রয়
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      আলাদাভাবে {products.length}টি প্রোডাক্ট কিনলে খরচ:{" "}
-                      <span className="font-bold line-through">৳{familyPack.mainPrice.toLocaleString()}</span>
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="text-center">
-                      <div className="text-2xl md:text-3xl font-bold text-green-600">
-                        ৳{familyPack.savings.toLocaleString()}
-                      </div>
-                      <div className="text-sm text-gray-600">মোট সাশ্রয়</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl md:text-3xl font-bold text-amber-600">
-                        {familyPack.savingsPercent}%
-                      </div>
-                      <div className="text-sm text-gray-600">ছাড়</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
         
       </div>
     </section>
